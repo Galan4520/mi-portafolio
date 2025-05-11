@@ -1,0 +1,37 @@
+---
+import ExperienceItem from "./ExperienceItem.astro"
+const EXPERIENCE = [
+  {
+    date: "Enero 2024 - Actualmente",
+    title: "Practicante Profesional Innovación, Optimización y Automatización",
+    company: "Repsol",
+    description:
+      "Colaboré en el desarrollo de dos aplicaciones implementadas en España, Portugal y Perú. También facilité la integración de Low-Code y la mejora de experiencia de usuario en distintas áreas."
+      ,link: "https://www.linkedin.com/in/orlando-andrés-galan-loza-1514ab1b9/",
+  },
+  {
+    date: "Marzo 2023 - Diciembre 2023",
+    title: "Practicante Pre Profesional Innovación, Optimización y Automatización",
+    company: "Repsol",
+    description:
+      "Reconocido en los Premios Compliance por generación de valor. Colaboré en el mapeo de procesos y brindé soporte en la coordinación entre áreas y proveedores para el desarrollo de proyectos.",
+  },
+  {
+    date: "Marzo 2022 - Marzo 2023",
+    title: "Practicante Pre profesional Control de Gestión",
+    company: "BanBif - Banco Interamericano de Finanzas",
+    description:
+      "Automatización de reportes en Excel y SQL Server, validación de KPIs y desarrollo de herramientas de seguimiento para Control de Gestión.",
+  },
+]
+---
+
+<ol class="relative mt-16">
+  {
+    EXPERIENCE.map((experience) => (
+      <li class="">
+        <ExperienceItem {...experience} />
+      </li>
+    ))
+  }
+</ol>

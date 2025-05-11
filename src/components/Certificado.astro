@@ -1,0 +1,107 @@
+---
+
+const certificates = [
+    {
+        title: "Scrum: Desarrollo de Proyectos con Agilidad",
+        description: "Curso enfocado en la metodología ágil Scrum, orientado a la gestión eficiente de proyectos mediante ciclos iterativos, roles definidos y entregas incrementales. Proporciona herramientas prácticas para planificar, ejecutar y mejorar proyectos con un enfoque colaborativo y adaptable.",
+        downloadLink: "/ULIMA.png",
+    },
+    {
+        title: "Especialización en Business Intelligence, Analytics y Big Data",
+        description: "Formación especializada en el análisis avanzado de datos, inteligencia de negocios y gestión de grandes volúmenes de información, utilizando herramientas y metodologías para la toma de decisiones estratégicas basadas en datos.",
+        downloadLink: "/UNI.png",
+        certificadoLink:"",
+    },
+    {
+        title: "Especialización en Inteligencia Artificial Aplicada a los Negocios",
+        description: "Incluye cursos sobre Gestión de la Inteligencia Artificial, Modelos de Machine Learning y Deep Learning con aplicaciones prácticas, así como tecnologías emergentes como IA Generativa y RPAs inteligentes.",
+        downloadLink: "/CENTRUM.png",
+        certificadoLink:"https://www.centrum.pucp.edu.pe/",
+    },
+    {
+        title: "Estrategias de visualización de datos: Power BI y Looker Studio ",
+        description: "Aprendizaje enfocado en el diseño de dashboards interactivos y la comunicación efectiva de datos mediante Power BI y Looker Studio, aplicando buenas prácticas de visualización para la toma de decisiones.",
+        downloadLink: "/ULIMA.png",
+    }
+];
+---
+<section class="certificates-section px-4 py-8">
+    <div class="certificates-list space-y-6">
+      {certificates.map((certificate) => (
+        <div class="certificate-item flex flex-col md:flex-row items-center md:items-start gap-4 border-b pb-4">
+          <img
+            src={certificate.downloadLink}
+            alt={certificate.title}
+            class="certificate-image w-32 md:w-40 rounded"
+          />
+          <div class="certificate-content text-center md:text-left">
+            <h3 class="certificate-title text-lg font-semibold mb-2 text-yellow-500 dark:text-yellow-100">{certificate.title}</h3>
+            <p class="certificate-description mb-2">{certificate.description}</p>
+            
+            {/* Solo mostrar el enlace si certificadoLink existe */}
+            {certificate.certificadoLink && (
+              <a
+                href={certificate.certificadoLink}
+                target="_blank"
+                class="certificate-link text-blue-600 font-medium hover:underline"
+              >
+                Descargar Certificado
+              </a>
+            )}
+          </div>
+        </div>
+      ))}
+    </div>
+  </section>
+  
+  
+  <style>
+    .certificates-section {
+      padding: 2rem;
+      font-family: sans-serif;
+    }
+  
+    .certificates-list {
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+    }
+  
+    .certificate-item {
+      display: flex;
+      align-items: center; /* <- Esto centra verticalmente la imagen con el texto align-items: flex-start;*/
+      
+      gap: 1rem;
+      border-bottom: 1px solid #ddd;
+      padding-bottom: 1rem;
+    }
+  
+    .certificate-image {
+      width: 100px;
+      height: auto;
+      border-radius: 4px;
+      display: block;
+      justify-content: center;
+      align-items: center;
+      
+    }
+    .certificate-content {
+      margin-left: 1rem;
+      flex: 1;
+    }
+  
+    .certificate-title {
+      margin: 0 0 0.5rem;
+      font-size: 1.2rem;
+    }
+  
+    .certificate-description {
+      margin: 0 0 0.5rem;
+    }
+  
+    .certificate-link {
+      color: #0077cc;
+      text-decoration: none;
+      font-weight: bold;
+    }
+  </style>

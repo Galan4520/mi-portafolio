@@ -1,0 +1,127 @@
+---
+import GitHub from "./icons/GitHub.astro"
+import NextJS from "./icons/NextJS.astro"
+import Tailwind from "./icons/Tailwind.astro"
+import PowerApps from "./icons/PowerApps.astro"
+import PowerAutomate from "./icons/PowerAutomate.astro"
+import PowerBI from "./icons/PowerBI.astro"
+import Link from "./icons/Link.astro"
+import LinkButton from "./LinkButton.astro"
+
+const TAGS = {
+  NEXT: {
+    name: "Next.js",
+    class: "bg-black text-white",
+    icon: NextJS,
+  },
+  TAILWIND: {
+    name: "Tailwind CSS",
+    class: "bg-[#003159] text-white",
+    icon: Tailwind,
+  },
+  POWERAPPS: {
+    name: "PowerApps",
+    class: "bg-[#CE3296] text-white",
+    icon: PowerApps,
+  },
+  PowerAutomate: {
+    name: "Power Automate",
+    class: "bg-[#0E3C88] text-white",
+    icon: PowerAutomate,
+  },
+  PoweBI: {
+    name: "Power BI",
+    class: "bg-[#DFA513] text-white",
+    icon: PowerBI,
+  },
+}
+const PROJECTS = [
+  {
+    title: "Gestión Inteligente con PowerApps: Registro de ANS, OLAs y KPI's al Alcance de un Clic",
+    description:
+      "Solución en PowerApps para ANS, OLAS y KPI's. Colaboración con España y Portugal. Automatiza registros y genera indicadores en segundos.",
+    link: "",
+    image: "/projects/953shots_so.jpg",
+    github: "",
+    tags: [TAGS.POWERAPPS,TAGS.PowerAutomate,TAGS.PoweBI],
+  },
+  {
+    title: "App de Gestión de Proyectos: Solución Low-Code con Power Apps",
+    description:
+      "La aplicación permite registrar iniciativas, asignar tareas, establecer plazos, visualizar avances y generar reportes automatizados, integrando herramientas como SharePoint y Power Automate.",
+    link: "",
+    image: "/projects/Aplicativo_InOA (2).jpg",
+    github: "",
+    tags: [TAGS.POWERAPPS,TAGS.PowerAutomate],
+  },
+  {
+    title: "Solución Low-Code para la Gestión Retributiva en Ventas de Electricidad y Gas",
+    description:
+      "Aplicación desarrollada para gestionar y automatizar la liquidación de modelos retributivos en los canales de venta del negocio de Electricidad y Gas, mejorando la trazabilidad y eficiencia del proceso.",
+    link: "",
+    image: "/projects/Liquidaciones.jpg",
+    github: "/aProyectos",
+    tags: [TAGS.POWERAPPS,TAGS.PowerAutomate],
+  },
+  {
+    title: "Plataforma de Capacitación y Seguimiento de Personal – Power Apps",
+    description:
+      "Aplicación desarrollada con Power Apps y Power Automate para centralizar la gestión de entrenamientos y registros del personal operativo, administrativo y de jefatura, facilitando el seguimiento de capacitaciones en un entorno digital y colaborativo.",
+    link: "",
+    image: "/projects/Cartilla_Entrenamiento.jpg",
+    github: "",
+    tags: [TAGS.POWERAPPS,TAGS.PowerAutomate],
+  },
+]
+---
+
+<div class="flex flex-col gap-y-16">
+  {
+    PROJECTS.map(({ image, title, description, tags, link, github }) => (
+    <article class="flex flex-col space-x-0 space-y-8 group md:flex-row md:space-x-8 md:space-y-0">
+  <div class="w-full md:w-1/2">
+    <div class="relative flex flex-col items-center col-span-6 row-span-5 gap-8 transition duration-500 ease-in-out transform shadow-xl overflow-clip rounded-xl sm:rounded-xl md:group-hover:-translate-y-1 md:group-hover:shadow-2xl lg:border lg:border-gray-800 lg:hover:border-gray-700 lg:hover:bg-gray-800/50">
+      <img alt="Recién llegado vs 5 años en Nueva Zelanda" class="object-cover object-top w-full h-56 transition duration-500 sm:h-full md:scale-110 md:group-hover:scale-105" loading="lazy" src={image} />
+    </div>
+  </div>
+
+  <div class="w-full md:w-1/2 md:max-w-lg">
+    <h3 class="text-2xl font-bold text-gray-800 dark:text-gray-100">
+      {title}
+    </h3>
+    <div class="flex flex-wrap mt-2">
+      <ul class="flex flex-row mb-2 gap-x-2">
+          {tags.map((tag) => (
+            <li>
+              <span
+                class={`flex gap-x-2 rounded-full text-xs ${tag.class} py-1 px-2 `}
+              >
+                <tag.icon class="size-4" />
+                {tag.name}
+              </span>
+            </li>
+          ))}
+        </ul>
+
+      <div class="mt-2 text-gray-700 dark:text-gray-400">{description}</div>
+      <footer class="flex items-end justify-start mt-4 gap-x-4">
+          {github && (
+            <LinkButton href={github}>
+              <GitHub class="size-6" />
+              Code
+              
+            </LinkButton>
+          )}
+          {link && (
+            <LinkButton href={link}>
+              <Link class="size-4" />
+              Preview
+            </LinkButton>
+          )}
+        </footer>
+    </div>
+  </div>
+</article>
+    ))
+  }
+</div>
