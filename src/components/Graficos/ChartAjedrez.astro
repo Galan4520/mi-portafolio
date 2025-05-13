@@ -1,0 +1,38 @@
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+<canvas id="ajedrezChart" width="400" height="200"></canvas>
+
+<script lang="ts">
+  window.onload = () => {
+    
+    const canvas = document.getElementById('ajedrezChart');
+    if (!(canvas instanceof HTMLCanvasElement)) return;
+    if (!canvas) return;
+
+    const ctx = canvas.getContext('2d');
+    if (!ctx) return;
+
+    new Chart(ctx, {
+      type: 'bar',
+      data: {
+        labels: ['Partida 1', 'Partida 2', 'Partida 3'],
+        datasets: [{
+          label: 'Movimientos',
+          data: [35, 50, 28],
+          backgroundColor: ['#4CAF50', '#FFC107', '#F44336'],
+        }]
+      },
+      options: {
+        responsive: true,
+        scales: {
+          y: {
+            type: 'linear',  // Asegúrate de especificar el tipo de escala
+            beginAtZero: true // Configuración del eje Y
+          }
+        }
+      }
+    });
+  };
+</script>
+
+

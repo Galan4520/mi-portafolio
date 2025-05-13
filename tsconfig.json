@@ -6,6 +6,7 @@
       "@/*": [
         "src/*"
       ]
-    }
+    },
+    "jsx": "react-jsx"  // Añadir esta línea para que TypeScript maneje JSX correctamente en caso de que uses React
   }
 }

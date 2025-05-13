@@ -1,0 +1,32 @@
+---
+import type { Project } from "@/Data/types";
+
+const { project } = Astro.props as { project: Project };
+---
+
+<section class="project-info">
+  <img src={project.image} alt={project.title} />
+  <h1>{project.title}</h1>
+  <p>{project.description}</p>
+
+  {project.sections.map((section) => (
+    <section>
+      <h2>{section.title}</h2>
+
+      {section.type === "list" && (
+        <ul>
+          {section.items.map((item) => (
+            <li>{item.description}</li>
+          ))}
+        </ul>
+      )}
+
+      {section.type === "paragraph" && <p>{section.content}</p>}
+
+      {section.type === "components" &&
+        section.items.map((Component) => <Component />)}
+    </section>
+  ))}
+</section>
+
+
